@@ -12,50 +12,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-
-function HomeScreen() {
-  const clickHandler = () => {
-    alert("Botão Clicado");
-  };
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <TouchableOpacity
-          activeOpacity={0.7}
-          onPress={clickHandler}
-          style={styles.touchableOpacityStyle}
-        >
-          <MaterialCommunityIcons name="plus-circle" color={"#000"} size={60}   />
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
-  );
-}
-
-function PerfilScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Perfil!</Text>
-    </View>
-  );
-}
-
-function SearchScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Pesquisar!</Text>
-    
-    </View>
-  );
-}
-function LoanScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Empréstimos!</Text>
-    </View>
-  );
-}
+import HomeScreen from "./Screen/HomeScreen.js";
+import PerfilScreen from "./Screen/PerfilScreen.js";
+import SearchScreen from "./Screen/SearchScreen.js";
+import LoanScreen from "./Screen/LoanScreen.js";
 
 const Tab = createBottomTabNavigator();
 
