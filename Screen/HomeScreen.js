@@ -15,7 +15,7 @@ const HomeScreen = () => {
           onPress={clickHandler}
           style={styles.touchableOpacityStyle}
         >
-          <MaterialCommunityIcons name="plus-circle" color={"white"} size={60} />
+          <MaterialCommunityIcons name="book-plus-multiple" color={"#0f172a"} size={45} />
         </TouchableOpacity> 
       </View>
     </SafeAreaView>
