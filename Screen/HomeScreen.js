@@ -15,8 +15,8 @@ const HomeScreen = () => {
           onPress={clickHandler}
           style={styles.touchableOpacityStyle}
         >
-          <MaterialCommunityIcons name="plus-circle" color={"#000"} size={60} />
-        </TouchableOpacity>
+          <MaterialCommunityIcons name="plus-circle" color={"white"} size={60} />
+        </TouchableOpacity> 
       </View>
     </SafeAreaView>
   );
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   touchableOpacityStyle: {
     position: "absolute",
     width: 60,
-    height: 60,
+    height: 100,
     alignItems: "center",
     justifyContent: "center",
     left: 120,

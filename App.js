@@ -27,14 +27,13 @@ export default function App() {
           tabBarShowLabel: false,
           tabBarActiveTintColor: "white",
           tabBarStyle: {
-            height: 70,
+            height: 60,
             position: "absolute",
             bottom: 10,
             borderRadius: 90,
             marginTop: 20,
             backgroundColor: 'white',
             marginHorizontal: 15,
-            padding: 20
           },
         }}
       >
@@ -42,7 +41,7 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={{
-            tabBarIconStyle: { color: "blue" },
+            tabBarIconStyle: { backgroundColor: "blue" },
             tabBarActiveTintColor: "orange",
             tabBarLabel: "Home",
             tabBarIcon: ({ color, size, focused, }) => (
