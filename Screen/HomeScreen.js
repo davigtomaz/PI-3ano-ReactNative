@@ -25,9 +25,9 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: '#cbd5e1'
   },
   touchableOpacityStyle: {
     position: "absolute",
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     left: 120,
-    bottom: 20,
+    bottom: 60,
   },
 });
 

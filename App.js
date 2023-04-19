@@ -22,14 +22,31 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarActiveTintColor: "white",
+          tabBarStyle: {
+            height: 70,
+            position: "absolute",
+            bottom: 10,
+            borderRadius: 90,
+            marginTop: 20,
+            backgroundColor: 'white',
+            marginHorizontal: 15,
+            padding: 20
+          },
+        }}
+      >
         <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{
+            tabBarIconStyle: { color: "blue" },
+            tabBarActiveTintColor: "orange",
             tabBarLabel: "Home",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={"#000"} size={size} />
+            tabBarIcon: ({ color, size, focused, }) => (
+              <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
           }}
         />
@@ -37,11 +54,12 @@ export default function App() {
           name="Pesquisar"
           component={SearchScreen}
           options={{
+            tabBarActiveTintColor: "blue",
             tabBarLabel: "Pesquisar",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="magnify"
-                color={"#000"}
+                color={color}
                 size={size}
               />
             ),
@@ -51,9 +69,10 @@ export default function App() {
           name="Empréstimos"
           component={LoanScreen}
           options={{
+            tabBarActiveTintColor: "red",
             tabBarLabel: "Empréstimos",
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="book" color={"#000"} size={size} />
+              <MaterialCommunityIcons name="book" color={color} size={size} />
             ),
           }}
         />
@@ -61,11 +80,12 @@ export default function App() {
           name="Perfil"
           component={PerfilScreen}
           options={{
+            tabBarActiveTintColor: "purple",
             tabBarLabel: "Conta",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="account-circle"
-                color={"#000"}
+                color={color}
                 size={size}
               />
             ),
