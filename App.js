@@ -30,7 +30,7 @@ export default function App() {
             height: 60,
             position: "absolute",
             bottom: 10,
-            borderRadius: 90,
+            borderRadius: 10,
             marginTop: 20,
             backgroundColor: 'white',
             marginHorizontal: 15,
