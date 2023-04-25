@@ -12,6 +12,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+
 import HomeScreen from "./Screen/HomeScreen.js";
 import PerfilScreen from "./Screen/PerfilScreen.js";
 import SearchScreen from "./Screen/SearchScreen.js";
@@ -31,14 +32,14 @@ export default function App() {
             position: "absolute",
             bottom: 10,
             borderRadius: 10,
-            marginTop: 20,
+            marginTop: 10,
             backgroundColor: 'white',
             marginHorizontal: 15,
           },
         }}
       >
         <Tab.Screen
-          name="Home"
+          name="Homee"
           component={HomeScreen}
           options={{
             tabBarIconStyle: { backgroundColor: "blue" },
@@ -91,6 +92,7 @@ export default function App() {
           }}
         />
       </Tab.Navigator>
+      
     </NavigationContainer>
   );
 }
