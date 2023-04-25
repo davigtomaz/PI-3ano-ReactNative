@@ -42,6 +42,12 @@ export default function App() {
           name="Homee"
           component={HomeScreen}
           options={{
+            headerStyle: {
+              flex: '1',
+              backgroundColor: '#f4511e',
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
             tabBarIconStyle: { backgroundColor: "blue" },
             tabBarActiveTintColor: "orange",
             tabBarLabel: "Home",
