@@ -9,8 +9,7 @@ function Card(props) {
     <View style={styles.card}>
       <Image style={styles.filme} source={{ uri: props.filme.capa }} />
       <Text style={{ color: "black" }}> {props.filme.titulo} </Text>
-      <Text style={{ fontSize: 12, color: 'black' }}> Autor: {props.filme.autor}</Text>
-      <Button title="Remover" onPress={props.onPress} />
+
     </View>
   );
 }
@@ -27,12 +26,7 @@ const HomeScreen = () => {
       titulo: "As Crônicas de Nárnia",
       autor: "C.S. Lewis",
     },
-    {
-      id: '2',
-      capa: "https://m.media-amazon.com/images/I/71yJLhQekBL.jpg",
-      titulo: "As Crônicas de Nárnia",
-      autor: "C.S. Lewis",
-    },
+    
   ]);
 
   function deleteObject(id) {
@@ -51,6 +45,7 @@ const HomeScreen = () => {
             deleteObject(filme.id)
           }} />
         ))}
+        <Text>AAAAAAAAA</Text>
       </View>
       </View>
       <View style={styles.container}>
@@ -59,7 +54,7 @@ const HomeScreen = () => {
           onPress={clickHandler}
           style={styles.touchableOpacityStyle}
         >
-          <MaterialCommunityIcons name="book-plus-multiple" color={"#0f172a"} size={45} elevation={25}
+          <MaterialCommunityIcons name="book-plus-multiple" color={"#0f172a"} size={35} elevation={25}
        />
         </TouchableOpacity> 
       </View>
@@ -70,28 +65,31 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: '#cbd5e1'
+    flexDirection: "row",
+    backgroundColor: '#cbd5e1',
   },
   touchableOpacityStyle: {
-    position: "absolute",
+    position: 'absolute',
+    bottom: 100,
+    right: 30,
+    zIndex: 1,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    height: 60,
     width: 60,
-    height: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    left: 120,
-    bottom: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   conteudo: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
+    backgroundColor: "white",
+    flex: 3,
+    flexDirection : 'row',
     width: "100%",
+    textAlign: 'center',
   },
   card: {
+    flex: 1,
     backgroundColor: "#0284c7",
-    width: "40%",
     height: 200,
     borderRadius: 10,
     margin: 20,
