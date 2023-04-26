@@ -16,13 +16,12 @@ import { StatusBar } from 'expo-status-bar';
 function Card(props) {
   return (
     <View style={styles.card}>
-      <View>
+      <View style={{height: "100%", width: "45%"}}>
         <Image style={styles.filme} source={{ uri: props.filme.capa }} />
-        <Text style={{ color: "black" }}> {props.filme.titulo} </Text>
       </View>
       <View>
-        <Text style={{ color: "black" }}> {props.filme.descricao} </Text>
-        <Text style={{ color: "black" }}> {props.filme.preco} </Text>
+        <Text style={styles.texto}> {props.filme.descricao} </Text>
+        <Text style={styles.texto}> {props.filme.preco} </Text>
       </View>
     </View>
   );
@@ -76,8 +75,8 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
       <View>
-        <View style={styles.texto}>
-          <Text>Seus Livros</Text>
+        <View style={{alignItems: 'center', }}>
+          <Text style={styles.texto}>Seus Livros</Text>
         </View>
         
           <View style={styles.conteudo}>
@@ -94,7 +93,7 @@ const HomeScreen = () => {
         
       </View>
       </ScrollView>
-      <View style={styles.container}>
+      <View >
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={clickHandler}
@@ -102,7 +101,7 @@ const HomeScreen = () => {
         >
           <MaterialCommunityIcons
             name="book-plus-multiple"
-            color={"gray"}
+            color={"white"}
             size={35}
             elevation={35}
           />
@@ -118,10 +117,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#cbd5e1",
+    backgroundColor: "#f3f4f6",
+    
   },
   scrollView: {
-
     marginHorizontal: 9,
   },
   touchableOpacityStyle: {
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
     bottom: 100,
     right: 30,
     zIndex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#1e293b",
     borderRadius: 20,
     height: 60,
     width: 60,
@@ -139,14 +138,16 @@ const styles = StyleSheet.create({
   conteudo: {
     width: "100%",
     textAlign: "center",
+    
   },
   card: {
     width: "90%",
-    backgroundColor: "orange",
+    backgroundColor: "#0c4a6e",
     height: 200,
     borderRadius: 10,
     flexDirection: "row",
     margin: 20,
+    color: 'white'
   },
   filme: {
     resizeMode: "stretch",
@@ -157,6 +158,7 @@ const styles = StyleSheet.create({
   texto: {
     justifyContent: "center",
     alignItems: "center",
+    color: 'white',
   },
 });
 

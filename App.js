@@ -22,34 +22,38 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
+          headerShadowVisible: false,
           tabBarActiveTintColor: "white",
+
           tabBarStyle: {
             height: 60,
+            borderTopColor: '#1e293b', 
             position: "absolute",
             bottom: 10,
             borderRadius: 10,
             marginTop: 10,
-            backgroundColor: 'white',
+            backgroundColor: '#1e293b',
             marginHorizontal: 15,
           },
         }}
       >
         <Tab.Screen
-          name="Homee"
+          name="Home"
           component={HomeScreen}
           options={{
             headerStyle: {
-              flex: '1',
-              backgroundColor: '#f4511e',
-              justifyContent: 'center',
-              alignItems: 'center',
+              backgroundColor: '#1e293b',
+            
             },
-            tabBarIconStyle: { backgroundColor: "blue" },
+            headerTintColor:'white',
+            justifyContent: 'center',
             tabBarActiveTintColor: "orange",
+            tabBarInactiveTintColor: 'white',
+            headerShadowVisible: false,
             tabBarLabel: "Home",
             tabBarIcon: ({ color, size, focused, }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
@@ -106,9 +110,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "green",
     alignItems: "center",
     justifyContent: "center",
+    
   },
   titleStyle: {
     fontSize: 28,
@@ -120,6 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     padding: 10,
+    color: 'white'
   },
   touchableOpacityStyle: {
     position: "absolute",
