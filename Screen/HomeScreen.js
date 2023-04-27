@@ -142,18 +142,20 @@ const styles = StyleSheet.create({
   },
   card: {
     width: "90%",
-    backgroundColor: "#0c4a6e",
+    backgroundColor: "white",
     height: 200,
     borderRadius: 10,
     flexDirection: "row",
     margin: 20,
-    color: 'white'
+    color: 'white',
+    elevation: 15,
   },
   filme: {
     resizeMode: "stretch",
     width: "100%",
     height: "100%",
     borderRadius: 10,
+    elevation: 20,
   },
   texto: {
     justifyContent: "center",
