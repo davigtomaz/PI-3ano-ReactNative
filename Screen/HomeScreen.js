@@ -8,11 +8,12 @@ import {
   Button,
   Image,
   ScrollView,
+  Modal,
+  Pressable
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
-import { StatusBar } from 'expo-status-bar';
-import Modal from "../components/Modal.js";
+import { StatusBar } from 'expo-status-bar'; 
 
 function Card(props) {
   return (
@@ -32,12 +33,7 @@ function Card(props) {
 
  
 const HomeScreen = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const clickHandler = () => {
-      setModalVisible(true);
-
-  };
+  const [modalActive, setModalActive] = useState(false);
 
   const [Filmes, setFilmes] = useState([
     {
@@ -73,16 +69,12 @@ const HomeScreen = () => {
       preco: 24.99,
     },
   ]);
-
-  function deleteObject(id) {
-    setFilmes((Filmes) => Filmes.filter((filme) => filme.id !== id));
-  }
-
+  
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
       <View>
-        <View style={{alignItems: 'center', }}>
+        <View style={{alignItems: 'center'}}>
           <Text style={styles.texto}>Seus Livros</Text>
         </View>
         
@@ -103,7 +95,7 @@ const HomeScreen = () => {
       <View >
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={clickHandler}
+          onPress={() => setModalActive(true)}
           style={styles.touchableOpacityStyle}
         >
           <MaterialCommunityIcons
@@ -116,9 +108,20 @@ const HomeScreen = () => {
       </View>
       <StatusBar style="auto" />
       <Modal
-        show={modalVisible}
-        close={() => setModalVisible(false)}
-        />
+       animationType="fade"
+       transparent={true}
+       visible={modalActive}
+       onRequestClose={() => setModalActive(false)}
+      >
+      <View style={styles.outerView}>
+          <View style={styles.modalView}>
+            <Text>Modal</Text>
+          <Pressable onPress={() => setModalActive(false)}>
+            <Text>Fechar</Text>
+          </Pressable>
+          </View>
+      </View>
+      </Modal>
     </SafeAreaView>
     
   );
@@ -130,6 +133,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#f3f4f6",
     
+  },
+  outerView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.2)",
+  },
+  modalView: {
+    width: 300,
+    height: 300,
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    backgroundColor: "white",
+    elevation: 5,
   },
   scrollView: {
     marginHorizontal: 9,
@@ -171,7 +189,7 @@ const styles = StyleSheet.create({
   texto: {
     justifyContent: "center",
     alignItems: "center",
-    color: 'white',
+    color: 'black',
   },
 });
 

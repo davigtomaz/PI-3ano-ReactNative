@@ -28,8 +28,8 @@ export default function App() {
           tabBarShowLabel: false,
           headerShadowVisible: false,
           tabBarActiveTintColor: "white",
-
           tabBarStyle: {
+            zIndex: 1,
             height: 60,
             borderTopColor: '#1e293b', 
             position: "absolute",
@@ -48,6 +48,9 @@ export default function App() {
             headerStyle: {
               backgroundColor: '#1e293b',
             
+            },
+            tabScreenStyle: {
+              zIndex: 1,
             },
             headerTintColor:'white',
             justifyContent: 'center',
