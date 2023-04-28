@@ -12,6 +12,7 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
+import Modal from "../components/Modal.js";
 
 function Card(props) {
   return (
@@ -27,9 +28,15 @@ function Card(props) {
   );
 }
 
+// Faça uma function que retorne o Modal
+
+ 
 const HomeScreen = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const clickHandler = () => {
-    alert("Botão Clicado");
+      setModalVisible(true);
+
   };
 
   const [Filmes, setFilmes] = useState([
@@ -108,6 +115,10 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
+      <Modal
+        show={modalVisible}
+        close={() => setModalVisible(false)}
+        />
     </SafeAreaView>
     
   );
