@@ -31,12 +31,12 @@ export default function App() {
           tabBarStyle: {
             zIndex: 1,
             height: 60,
-            borderTopColor: '#1e293b', 
+            borderTopColor: '#2f3e46', 
             position: "absolute",
             bottom: 10,
             borderRadius: 10,
             marginTop: 10,
-            backgroundColor: '#1e293b',
+            backgroundColor: '#2f3e46',
             marginHorizontal: 15,
           },
         }}
@@ -46,7 +46,7 @@ export default function App() {
           component={HomeScreen}
           options={{
             headerStyle: {
-              backgroundColor: '#1e293b',
+              backgroundColor: '#2f3e46',
             
             },
             tabScreenStyle: {
@@ -54,7 +54,7 @@ export default function App() {
             },
             headerTintColor:'white',
             justifyContent: 'center',
-            tabBarActiveTintColor: "orange",
+            tabBarActiveTintColor: "#cad2c5",
             tabBarInactiveTintColor: 'white',
             headerShadowVisible: false,
             tabBarLabel: "Home",
@@ -67,7 +67,7 @@ export default function App() {
           name="Pesquisar"
           component={SearchScreen}
           options={{
-            tabBarActiveTintColor: "blue",
+            tabBarActiveTintColor: "#d8f3dc",
             tabBarLabel: "Pesquisar",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
@@ -82,7 +82,7 @@ export default function App() {
           name="Empréstimos"
           component={LoanScreen}
           options={{
-            tabBarActiveTintColor: "red",
+            tabBarActiveTintColor: "#b7e4c7",
             tabBarLabel: "Empréstimos",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="book" color={color} size={size} />
@@ -93,7 +93,7 @@ export default function App() {
           name="Perfil"
           component={PerfilScreen}
           options={{
-            tabBarActiveTintColor: "purple",
+            tabBarActiveTintColor: "#95d5b2",
             tabBarLabel: "Conta",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons

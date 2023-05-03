@@ -13,7 +13,7 @@ const PerfilScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "purple",
+    backgroundColor: "#95d5b2",
     alignItems: "center",
     justifyContent: "center",
   },

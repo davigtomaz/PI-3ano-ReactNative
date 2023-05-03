@@ -13,7 +13,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#d8f3dc",
     alignItems: "center",
     justifyContent: "center",
   },

@@ -9,16 +9,17 @@ import {
   Image,
   ScrollView,
   Modal,
-  Pressable
+  Pressable,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
-import { StatusBar } from 'expo-status-bar'; 
+import { StatusBar } from "expo-status-bar";
+import { IconButton, TextInput } from "@react-native-material/core";
 
 function Card(props) {
   return (
     <View style={styles.card}>
-      <View style={{height: "100%", width: "45%"}}>
+      <View style={{ height: "100%", width: "45%" }}>
         <Image style={styles.filme} source={{ uri: props.filme.capa }} />
       </View>
       <View>
@@ -31,7 +32,6 @@ function Card(props) {
 
 // Faça uma function que retorne o Modal
 
- 
 const HomeScreen = () => {
   const [modalActive, setModalActive] = useState(false);
 
@@ -69,30 +69,29 @@ const HomeScreen = () => {
       preco: 24.99,
     },
   ]);
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-      <View>
-        <View style={{alignItems: 'center'}}>
-          <Text style={styles.texto}>Seus Livros</Text>
-        </View>
-        
+        <View>
+          <View style={{ alignItems: "center" }}>
+            <Text style={styles.texto}>Seus Livros</Text>
+          </View>
+
           <View style={styles.conteudo}>
             {Filmes.map((filme) => (
               <Card
-              key = {filme.id}  
-              filme={filme}
+                key={filme.id}
+                filme={filme}
                 onPress={() => {
                   deleteObject(filme.id);
                 }}
               />
             ))}
           </View>
-        
-      </View>
+        </View>
       </ScrollView>
-      <View >
+      <View>
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={() => setModalActive(true)}
@@ -108,22 +107,31 @@ const HomeScreen = () => {
       </View>
       <StatusBar style="auto" />
       <Modal
-       animationType="fade"
-       transparent={true}
-       visible={modalActive}
-       onRequestClose={() => setModalActive(false)}
+        animationType="fade"
+        transparent={true}
+        visible={modalActive}
+        onRequestClose={() => setModalActive(false)}
       >
-      <View style={styles.outerView}>
+        <View style={styles.outerView}>
           <View style={styles.modalView}>
-            <Text>Modal</Text>
-          <Pressable onPress={() => setModalActive(false)}>
-            <Text>Fechar</Text>
-          </Pressable>
+            <TextInput
+              style={{ margin: 16, width: 250, height: 100, }}
+              label="ISBN"
+              variant="standard"
+              trailing={(props) => (
+                <IconButton
+                  icon={(props) => <MaterialCommunityIcons name="magnify" {...props} />}
+                  {...props}
+                />
+              )}
+            />
+            <Pressable onPress={() => setModalActive(false)}>
+              <Text style={{ backgroundColor: "gray" }}>Fechar</Text>
+            </Pressable>
           </View>
-      </View>
+        </View>
       </Modal>
     </SafeAreaView>
-    
   );
 };
 
@@ -131,8 +139,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#f3f4f6",
-    
+    backgroundColor: "#cad2c5",
   },
   outerView: {
     flex: 1,
@@ -157,7 +164,7 @@ const styles = StyleSheet.create({
     bottom: 100,
     right: 30,
     zIndex: 1,
-    backgroundColor: "#1e293b",
+    backgroundColor: "#2f3e46",
     borderRadius: 20,
     height: 60,
     width: 60,
@@ -167,7 +174,6 @@ const styles = StyleSheet.create({
   conteudo: {
     width: "100%",
     textAlign: "center",
-    
   },
   card: {
     width: "90%",
@@ -176,7 +182,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: "row",
     margin: 20,
-    color: 'white',
+    color: "white",
     elevation: 15,
   },
   filme: {
@@ -189,7 +195,7 @@ const styles = StyleSheet.create({
   texto: {
     justifyContent: "center",
     alignItems: "center",
-    color: 'black',
+    color: "black",
   },
 });
 
