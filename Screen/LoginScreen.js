@@ -21,6 +21,7 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons name="bookshelf" color={'white'} size={200} style={styles.icon}  />
+      <Text style={styles.textTitle}>Daarii</Text>
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   icon: {
-    marginBottom: 50,
+    marginBottom: 10,
     shadowOpacity: 10,
     textShadowRadius: 10,
     textShadowOffset: {width: 10, height: 10},
@@ -101,5 +102,13 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: '#2f3e46'
-  }
+  },
+  textTitle: {
+    color: 'white',
+    fontSize: 40,
+    marginBottom: 20,
+    textShadowColor: 'black',
+    textShadowRadius: 20,
+    textShadowOffset: {width: 1, height: 1},
+  },
 });

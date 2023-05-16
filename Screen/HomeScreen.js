@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,29 +8,13 @@ import {
   Button,
   Image,
   ScrollView,
-  Modal,
-  Pressable,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { IconButton, TextInput } from "@react-native-material/core";
 
-function Card(props) {
-  return (
-    <View style={styles.card}>
-      <View style={{ height: "100%", width: "45%" }}>
-        <Image style={styles.filme} source={{ uri: props.filme.capa }} />
-      </View>
-      <View>
-        <Text style={styles.texto}> {props.filme.descricao} </Text>
-        <Text style={styles.texto}> {props.filme.preco} </Text>
-      </View>
-    </View>
-  );
-}
-
-// Faça uma function que retorne o Modal
+import Card from "../components/Card.js";
+import ModalComponent from "../components/ModalComponent.js";
 
 const HomeScreen = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -70,6 +54,14 @@ const HomeScreen = () => {
     },
   ]);
 
+  const openModal = () => {
+    setModalActive(true);
+  };
+
+  const closeModal = () => {
+    setModalActive(false);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -80,13 +72,7 @@ const HomeScreen = () => {
 
           <View style={styles.conteudo}>
             {Filmes.map((filme) => (
-              <Card
-                key={filme.id}
-                filme={filme}
-                onPress={() => {
-                  deleteObject(filme.id);
-                }}
-              />
+              <Card key={filme.id} filme={filme} />
             ))}
           </View>
         </View>
@@ -94,7 +80,7 @@ const HomeScreen = () => {
       <View>
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={() => setModalActive(true)}
+          onPress={openModal}
           style={styles.touchableOpacityStyle}
         >
           <MaterialCommunityIcons
@@ -106,31 +92,7 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalActive}
-        onRequestClose={() => setModalActive(false)}
-      >
-        <View style={styles.outerView}>
-          <View style={styles.modalView}>
-            <TextInput
-              style={{ margin: 16, width: 250, height: 100, }}
-              label="ISBN"
-              variant="standard"
-              trailing={(props) => (
-                <IconButton
-                  icon={(props) => <MaterialCommunityIcons name="magnify" {...props} />}
-                  {...props}
-                />
-              )}
-            />
-            <Pressable onPress={() => setModalActive(false)}>
-              <Text style={{ backgroundColor: "gray" }}>Fechar</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+      <ModalComponent modalVisible={modalActive} closeModal={closeModal} />
     </SafeAreaView>
   );
 };
@@ -140,21 +102,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     backgroundColor: "#cad2c5",
-  },
-  outerView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.2)",
-  },
-  modalView: {
-    width: 300,
-    height: 300,
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    backgroundColor: "white",
-    elevation: 5,
   },
   scrollView: {
     marginHorizontal: 9,
@@ -170,34 +117,16 @@ const styles = StyleSheet.create({
     width: 60,
     justifyContent: "center",
     alignItems: "center",
-  },
-  conteudo: {
+    },
+    conteudo: {
     width: "100%",
     textAlign: "center",
-  },
-  card: {
-    width: "90%",
-    backgroundColor: "white",
-    height: 200,
-    borderRadius: 10,
-    flexDirection: "row",
-    margin: 20,
-    color: "white",
-    elevation: 15,
-  },
-  filme: {
-    resizeMode: "stretch",
-    width: "100%",
-    height: "100%",
-    borderRadius: 10,
-    elevation: 20,
-  },
-  texto: {
+    },
+    texto: {
     justifyContent: "center",
     alignItems: "center",
     color: "black",
-  },
-});
-
-export default HomeScreen
-;
+    },
+    });
+    
+    export default HomeScreen;
