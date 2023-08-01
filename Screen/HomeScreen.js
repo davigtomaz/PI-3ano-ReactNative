@@ -28,30 +28,6 @@ const HomeScreen = () => {
       descricao: "Texto que eu quero no lado",
       preco: 24.99,
     },
-    {
-      id: "2",
-      capa: "https://m.media-amazon.com/images/I/71yJLhQekBL.jpg",
-      titulo: "As Crônicas de Nárnia",
-      autor: "C.S. Lewis",
-      descricao: "Texto que eu quero no lado",
-      preco: 24.99,
-    },
-    {
-      id: "3",
-      capa: "https://m.media-amazon.com/images/I/71yJLhQekBL.jpg",
-      titulo: "As Crônicas de Nárnia",
-      autor: "C.S. Lewis",
-      descricao: "Texto que eu quero no lado",
-      preco: 24.99,
-    },
-    {
-      id: "4",
-      capa: "https://m.media-amazon.com/images/I/71yJLhQekBL.jpg",
-      titulo: "As Crônicas de Nárnia",
-      autor: "C.S. Lewis",
-      descricao: "Texto que eu quero no lado",
-      preco: 24.99,
-    },
   ]);
 
   const openModal = () => {
