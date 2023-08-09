@@ -22,10 +22,10 @@ function ModalComponent({ modalVisible, closeModal }) {
             />
           </View>
           <View style={styles.inputView}>
-          <Text>ISBN</Text>
+          <Text>Autor</Text>
             <TextInput
               style={styles.TextInput}
-              placeholder="Opcional"
+              placeholder=""
               placeholderTextColor="#2f3e46"
             />
           </View>
@@ -44,7 +44,7 @@ function ModalComponent({ modalVisible, closeModal }) {
             />
           </View>
           <View style={styles.inputView}>
-          <Text>Autor</Text>
+          <Text>Local do Livro</Text>
             <TextInput
               style={styles.TextInput}
               placeholderTextColor="#2f3e46"
