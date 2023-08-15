@@ -4,20 +4,6 @@ import { IconButton, TextInput } from "@react-native-material/core";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import MultiSelectComponent from "../components/MultiSelectComponent.js";
-import Modal2  from "../components/ModalComponent2.js"
-
-function ModalComponent2({ modalVisible2, closeModal2}){
-  return (
-    <Modal2
-    animationType="fade"
-    transparent={true}
-    visible={modalVisible2}
-    onRequestClose={closeModal2}>
-
-    </Modal2>
-  )
-}
-
 
 function ModalComponent({ modalVisible, closeModal }) {
   return (
@@ -33,37 +19,11 @@ function ModalComponent({ modalVisible, closeModal }) {
             Adicionar Livros
           </Text>
           <View style={styles.inputView}>
-            <Text>Titulo</Text>
-            <TextInput
-              style={styles.TextInput}
-              placeholderTextColor="#2f3e46"
-            />
+           <MultiSelectComponent />
           </View>
-          <View style={styles.inputView}>
-            <Text>Autor</Text>
-            <TextInput
-              style={styles.TextInput}
-              placeholder=""
-              placeholderTextColor="#2f3e46"
-            />
-          </View>
-          <View style={styles.inputView}>
-            <Text>Localização</Text>
-            <TextInput
-              style={styles.TextInput}
-              placeholderTextColor="#2f3e46"
-            />
-          </View>
-          <View style={styles.inputView}>
-            <Text>Editora</Text>
-            <TextInput
-              style={styles.TextInput}
-              placeholderTextColor="#2f3e46"
-            />
-          </View>
-
-          <TouchableOpacity onPress={modalVisible2} style={styles.loginBtn}>
-            <Text style={{ color: "white" }}>Próxima</Text>
+          
+          <TouchableOpacity onPress={closeModal} style={styles.loginBtn}>
+            <Text style={{ color: "white" }}>Adicionar</Text>
           </TouchableOpacity>
         </View>
       </View>
