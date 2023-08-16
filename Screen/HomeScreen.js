@@ -68,7 +68,7 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
-      <ModalComponent modalVisible={modalActive} closeModal={closeModal} />
+      <ModalComponent modalActive={modalActive} closeModal={closeModal} />
     </SafeAreaView>
   );
 };
