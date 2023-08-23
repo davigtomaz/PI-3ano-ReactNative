@@ -45,7 +45,6 @@ const HomeScreen = () => {
           <View style={{ alignItems: "center" }}>
             <Text style={styles.texto}>Seus Livros</Text>
           </View>
-
           <View style={styles.conteudo}>
             {Filmes.map((filme) => (
               <Card key={filme.id} filme={filme} />

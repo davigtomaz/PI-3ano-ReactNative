@@ -15,8 +15,7 @@ function ModalComponent2({ modalVisible2, closeModal2 }) {
     >
       <View style={styles.outerView}>
         <View style={styles.modalView}>
-          <Text style={{ fontSize: 30, paddingBottom: 10 }}>Modal Interno</Text>
-          {/* Conteúdo do segundo modal */}
+          <MultiSelectComponent style={styles.inputView} />
           <TouchableOpacity onPress={closeModal2} style={styles.loginBtn}>
             <Text style={{ color: "white" }}>Fechar Modal Interno</Text>
           </TouchableOpacity>
@@ -32,9 +31,9 @@ function ModalComponent(props) {
 
   useEffect(() => {
     if (props.modalActive) {
-      openModal() 
+      openModal();
     }
-  },[props.modalActive])
+  }, [props.modalActive]);
 
   const openModal = () => {
     setModalVisible(true);
@@ -46,10 +45,12 @@ function ModalComponent(props) {
 
   const openModal2 = () => {
     setModalVisible2(true);
+    setModalVisible(false);
   };
 
   const closeModal2 = () => {
     setModalVisible2(false);
+    props.closeModal();
   };
 
   return (
@@ -62,15 +63,23 @@ function ModalComponent(props) {
       >
         <View style={styles.outerView}>
           <View style={styles.modalView}>
-            <Text style={{ fontSize: 30, paddingBottom: 10 }}>Modal Externo</Text>
-            {/* Conteúdo do primeiro modal */}
+            <View style={styles.inputView}>
+              <Text>Titulo</Text>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#2f3e46"
+              />
+            </View>
             <TouchableOpacity onPress={openModal2} style={styles.loginBtn}>
               <Text style={{ color: "white" }}>Abrir Modal Interno</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-      <ModalComponent2 modalVisible2={modalVisible2} closeModal2={closeModal2} />
+      <ModalComponent2
+        modalVisible2={modalVisible2}
+        closeModal2={closeModal2}
+      />
     </View>
   );
 }
@@ -88,17 +97,11 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalView: {
-    width: 400,
+    width: "90%",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
     backgroundColor: "white",
-    elevation: 5,
-  },
-  openModalBtn: {
-    padding: 10,
-    backgroundColor: "#2f3e46",
-    borderRadius: 5,
   },
   loginBtn: {
     width: "50%",
@@ -110,6 +113,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#2f3e46",
     color: "white",
     marginBottom: 10,
+  },
+  inputView: {
+    backgroundColor: "white",
+    width: "100%",
+    height: 60,
+    marginBottom: 20,
+  },
+  TextInput: {
+    height: 50,
+    flex: 1,
+    alignItems: "center",
   },
 });
 
