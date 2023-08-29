@@ -3,11 +3,13 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Stack, Avatar } from "@react-native-material/core";
 
+import Graphic from "../components/Graphic.js";
+
 const PerfilScreen = () => {
   return (
-    <Stack fill center spacing={4} style={styles.avatar}>
-    <Avatar image={{ uri: "https://mui.com/static/images/avatar/1.jpg" }} />
-  </Stack>
+    <View>
+        <Graphic />
+    </View>
   );
 };
 
@@ -21,10 +23,7 @@ const styles = StyleSheet.create({
 
   // Quero que a imagem do avatar fique maior
 
-
-  avatar:{
-    
-  }
+  avatar: {},
 });
 
 export default PerfilScreen;

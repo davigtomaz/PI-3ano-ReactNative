@@ -39,9 +39,12 @@ const MultiSelectComponent = () => {
 export default MultiSelectComponent;
 
 const styles = StyleSheet.create({
-  container: { padding: 16 },
+  container:{ 
+    padding: 50
+  },
   dropdown: {
     height: 50,
+    width: 300 ,
     backgroundColor: "transparent",
     borderBottomColor: "gray",
     borderBottomWidth: 0.5,
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
     height: 20,
   },
   inputSearchStyle: {
-    height: 40,
+    height: 50,
     fontSize: 16,
   },
   icon: {
