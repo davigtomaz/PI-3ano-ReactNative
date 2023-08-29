@@ -15,6 +15,13 @@ function ModalComponent2({ modalVisible2, closeModal2 }) {
     >
       <View style={styles.outerView}>
         <View style={styles.modalView}>
+        <View style={styles.inputView}>
+              <Text>Capa</Text>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#2f3e46"
+              />
+            </View>
           <MultiSelectComponent style={styles.inputView} />
           <TouchableOpacity onPress={closeModal2} style={styles.loginBtn}>
             <Text style={{ color: "white" }}>Fechar Modal Interno</Text>
@@ -65,6 +72,34 @@ function ModalComponent(props) {
           <View style={styles.modalView}>
             <View style={styles.inputView}>
               <Text>Titulo</Text>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#2f3e46"
+              />
+            </View>
+            <View style={styles.inputView}>
+              <Text>ISBN</Text>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#2f3e46"
+              />
+            </View>
+            <View style={styles.inputView}>
+              <Text>Autor</Text>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#2f3e46"
+              />
+            </View>
+            <View style={styles.inputView}>
+              <Text>Editora</Text>
+              <TextInput
+                style={styles.TextInput}
+                placeholderTextColor="#2f3e46"
+              />
+            </View>
+            <View style={styles.inputView}>
+              <Text>Localização</Text>
               <TextInput
                 style={styles.TextInput}
                 placeholderTextColor="#2f3e46"

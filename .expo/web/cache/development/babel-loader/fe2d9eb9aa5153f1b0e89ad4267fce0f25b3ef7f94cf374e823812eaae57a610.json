@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default /^url\\(#(.+?)\\)$/;","map":{"version":3,"names":[],"sources":["/home/davigtomaz/PI-3ano-ReactNative/node_modules/react-native-svg/lib/extract/patternReg.js"],"sourcesContent":["export default /^url\\(#(.+?)\\)$/;\n"],"mappings":"AAAA,eAAe,iBAAiB"},"metadata":{},"sourceType":"module","externalDependencies":[]}

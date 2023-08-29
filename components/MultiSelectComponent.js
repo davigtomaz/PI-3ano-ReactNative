@@ -4,14 +4,9 @@ import { MultiSelect } from "react-native-element-dropdown";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 const data = [
-  { label: "Item 1", value: "1" },
-  { label: "Item 2", value: "2" },
-  { label: "Item 3", value: "3" },
-  { label: "Item 4", value: "4" },
-  { label: "Item 5", value: "5" },
-  { label: "Item 6", value: "6" },
-  { label: "Item 7", value: "7" },
-  { label: "Item 8", value: "8" },
+  { label: "Ação", value: "1" },
+  { label: "Ficção", value: "2" },
+  { label: "Aventura", value: "3" },
 ];
 
 const MultiSelectComponent = () => {
@@ -29,20 +24,12 @@ const MultiSelectComponent = () => {
         data={data}
         labelField="label"
         valueField="value"
-        placeholder="Select item"
+        placeholder="Categoria"
         searchPlaceholder="Search..."
         value={selected}
         onChange={(item) => {
           setSelected(item);
         }}
-        renderLeftIcon={() => (
-          <AntDesign
-            style={styles.icon}
-            color="black"
-            name="Safety"
-            size={20}
-          />
-        )}
         selectedStyle={styles.selectedStyle}
       />
     </View>
