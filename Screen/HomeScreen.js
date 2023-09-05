@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,8 +10,11 @@ import {
   ScrollView,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { StatusBar } from "expo-status-bar";
-import { IconButton, TextInput } from "@react-native-material/core";
+import { StatusBar } from "expo-status-balivrort CategoriasService from '../slivroes/categorias.js';
+
+import LivrosService from '../src/services/livros.js';
+
+
 
 import Card from "../components/Card.js";
 import ModalComponent from "../components/ModalComponent.js";
@@ -19,16 +22,12 @@ import ModalComponent from "../components/ModalComponent.js";
 const HomeScreen = () => {
   const [modalActive, setModalActive] = useState(false);
 
-  const [Filmes, setFilmes] = useState([
-    {
-      id: "1",
-      capa: "https://m.media-amazon.com/images/I/71yJLhQekBL.jpg",
-      titulo: "As Crônicas de Nárnia",
-      autor: "C.S. Lewis",
-      descricao: "Texto que eu quero no lado",
-      preco: 24.99,
-    },
-  ]);
+  const [Livros, setLivros] = useState([]);
+
+  useEffect(async () => {
+    const data = await LivrosService.getAllLivros();
+    setLivros(data);
+  }, []);
 
   const openModal = () => {
     setModalActive(true);
@@ -46,8 +45,8 @@ const HomeScreen = () => {
             <Text style={styles.texto}>Seus Livros</Text>
           </View>
           <View style={styles.conteudo}>
-            {Filmes.map((filme) => (
-              <Card key={filme.id} filme={filme} />
+            {Livros.map((Livro) => (
+              <Card key={Livro.id} livro={livro} />
             ))}
           </View>
         </View>
