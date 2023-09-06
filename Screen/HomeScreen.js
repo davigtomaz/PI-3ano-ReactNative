@@ -10,11 +10,9 @@ import {
   ScrollView,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { StatusBar } from "expo-status-balivrort CategoriasService from '../slivroes/categorias.js';
+import { StatusBar } from "expo-status-bar";
 
-import LivrosService from '../src/services/livros.js';
-
-
+import livroService from '../src/services/livros.js';
 
 import Card from "../components/Card.js";
 import ModalComponent from "../components/ModalComponent.js";
@@ -24,9 +22,13 @@ const HomeScreen = () => {
 
   const [Livros, setLivros] = useState([]);
 
-  useEffect(async () => {
-    const data = await LivrosService.getAllLivros();
+  async function BuscarDados() {
+    const data = await livroService.getAllLivros();
     setLivros(data);
+  }
+
+  useEffect(() => {
+    BuscarDados();
   }, []);
 
   const openModal = () => {
@@ -45,8 +47,9 @@ const HomeScreen = () => {
             <Text style={styles.texto}>Seus Livros</Text>
           </View>
           <View style={styles.conteudo}>
+            
             {Livros.map((Livro) => (
-              <Card key={Livro.id} livro={livro} />
+              <Card key={Livro.id} livro={Livro} />
             ))}
           </View>
         </View>

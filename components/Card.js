@@ -5,11 +5,11 @@ function Card(props) {
   return (
     <View style={styles.card}>
       <View style={{ height: "100%", width: "45%" }}>
-        <Image style={styles.filme} source={{ uri: props.filme.capa }} />
+        <Image style={styles.filme} source={{ uri: props.livro.capa }} />
       </View>
       <View>
-        <Text style={styles.texto}> {props.filme.descricao} </Text>
-        <Text style={styles.texto}> {props.filme.preco} </Text>
+        <Text style={styles.texto}> {props.livro.titulo} </Text>
+        <Text style={styles.texto}> {props.livro.categoria} </Text>
       </View>
     </View>
   );
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderRadius: 10,
-    elevation: 20,
   },
   texto: {
     justifyContent: "center",
