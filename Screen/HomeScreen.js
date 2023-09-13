@@ -47,7 +47,6 @@ const HomeScreen = () => {
             <Text style={styles.texto}>Seus Livros</Text>
           </View>
           <View style={styles.conteudo}>
-            
             {Livros.map((Livro) => (
               <Card key={Livro.id} livro={Livro} />
             ))}
