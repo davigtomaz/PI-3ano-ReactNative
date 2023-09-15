@@ -4,6 +4,7 @@ import { IconButton, TextInput } from "@react-native-material/core";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import MultiSelectComponent from "../components/MultiSelectComponent.js";
+import ImagePicker from "../components/ImagePickerComponent.js"
 
 function ModalComponent2({ modalVisible2, closeModal2 }) {
   return (
@@ -17,11 +18,8 @@ function ModalComponent2({ modalVisible2, closeModal2 }) {
         <View style={styles.modalView}>
         <View style={styles.inputView}>
               <Text>Capa</Text>
-              <TextInput
-                style={styles.TextInput}
-                placeholderTextColor="#2f3e46"
-              />
-            </View>
+        <ImagePicker/>
+        </View>
           <MultiSelectComponent style={styles.inputView} />
           <TouchableOpacity onPress={closeModal2} style={styles.loginBtn}>
             <Text style={{ color: "white" }}>Fechar Modal Interno</Text>
