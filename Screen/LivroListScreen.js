@@ -5,10 +5,11 @@ import {
   View,
   TouchableOpacity,
   Text,
-  Button,
+
   Image,
   ScrollView,
 } from "react-native";
+import { FAB } from 'react-native-paper'
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
@@ -52,6 +53,11 @@ const LivroListScreen = () => {
             ))}
           </View>
         </View>
+      <View style={styles.buttons}>
+        <FAB mode="contained" label="+">
+          Adicionar
+        </FAB>
+      </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -86,6 +92,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     color: "black",
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '70%',
   },
 });
 
