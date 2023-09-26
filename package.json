@@ -13,9 +13,11 @@
     "@react-native-material/core": "^1.3.7",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.14",
     "@react-navigation/stack": "^6.3.16",
     "axios": "^1.5.0",
     "expo": "~48.0.10",
+    "expo-image-picker": "~14.1.1",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -30,8 +32,7 @@
     "react-native-svg": "13.4.0",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.10",
-    "recharts": "^2.8.0",
-    "expo-image-picker": "~14.1.1"
+    "recharts": "^2.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
