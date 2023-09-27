@@ -3,24 +3,18 @@ import {
   SafeAreaView,
   StyleSheet,
   View,
-  TouchableOpacity,
-  Text,
-
-  Image,
   ScrollView,
 } from "react-native";
-import { FAB } from 'react-native-paper'
+import { FAB, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
 import livroService from "../src/services/livros.js";
 
 import Card from "../components/Card.js";
-import ModalComponent from "../components/ModalComponent.js";
 
-const LivroListScreen = () => {
-  const [modalActive, setModalActive] = useState(false);
-
+export default function LivroListScreen({ navigation }) {
+  const [refreshing, setRefreshing] = useState(false);
   const [Livros, setLivros] = useState([]);
 
   async function BuscarDados() {
@@ -31,14 +25,6 @@ const LivroListScreen = () => {
   useEffect(() => {
     BuscarDados();
   }, []);
-
-  const openModal = () => {
-    setModalActive(true);
-  };
-
-  const closeModal = () => {
-    setModalActive(false);
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -53,15 +39,20 @@ const LivroListScreen = () => {
             ))}
           </View>
         </View>
+      </ScrollView>
       <View style={styles.buttons}>
-        <FAB mode="contained" label="+">
-          Adicionar
+        <FAB
+          mode="contained"
+          icon="book-plus"
+          color='black'
+          style={styles.fab}
+          onPress={() => navigation.navigate("LivroAdd")}
+        >
         </FAB>
       </View>
-      </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -71,18 +62,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginHorizontal: 9,
-  },
-  touchableOpacityStyle: {
-    position: "absolute",
-    bottom: 100,
-    right: 30,
-    zIndex: 1,
-    backgroundColor: "#2f3e46",
-    borderRadius: 20,
-    height: 60,
-    width: 60,
-    justifyContent: "center",
-    alignItems: "center",
   },
   conteudo: {
     width: "100%",
@@ -94,10 +73,17 @@ const styles = StyleSheet.create({
     color: "black",
   },
   buttons: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '70%',
+    position: "absolute",
+    bottom: 100,
+    right: 30,
+    zIndex: 1,
+    borderRadius: 20,
+    height: 60,
+    width: 60,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  fab: {
+    backgroundColor: "white",
   },
 });
-
-export default LivroListScreen;

@@ -20,7 +20,8 @@ export default function MovieAdd({ navigation }) {
     titulo: '',
     categoria: '',
     editora: '',
-    autores: null,
+    autores: '',
+    localizacao: '',
   });
 
 
@@ -30,7 +31,7 @@ export default function MovieAdd({ navigation }) {
     const image = await imageService.uploadImage(file);
     setLivro((livro) => ({
       ...livro,
-      cover_attachment_key: image.attachment_key,
+      capa_attachment_key: image.attachment_key,
     }));
     const data = await livroService.saveLivro(livro);
     navigation.goBack();
@@ -93,6 +94,13 @@ export default function MovieAdd({ navigation }) {
           style={{ marginBottom: 10 }}
           onChangeText={(text) =>
             setLivro((livro) => ({ ...livro, autores: text }))
+          }
+        />
+        <TextInput
+          label="Localização"
+          style={{ marginBottom: 10 }}
+          onChangeText={(text) =>
+            setLivro((livro) => ({ ...livro, localizacao: text }))
           }
         />
         
