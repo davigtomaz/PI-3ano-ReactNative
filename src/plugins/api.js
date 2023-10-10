@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://daarii-ni11-dev.fl0.io/'
+  baseURL: 'http://191.52.55.130:19003'
 })
 
 export default api 

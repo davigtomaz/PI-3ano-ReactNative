@@ -17,11 +17,11 @@ export default function MovieAdd({ navigation }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [file, setFile] = useState(null);
   const [livro, setLivro] = useState({
-    titulo: '',
-    categoria: '',
-    editora: '',
-    autores: '',
-    localizacao: '',
+    Titulo: '',
+    Categoria: '',
+    Editora: '',
+    Autores: '',
+    Localizacao: '',
   });
 
 
@@ -72,35 +72,35 @@ export default function MovieAdd({ navigation }) {
           label="Título"
           style={{ marginBottom: 10 }}
           onChangeText={(text) =>
-            setLivro((livro) => ({ ...livro, titulo: text }))
+            setLivro((livro) => ({ ...livro, Titulo: text }))
           }
         />
         <TextInput
           label="Categoria(s)"
           style={{ marginBottom: 10 }}
           onChangeText={(text) =>
-            setLivro((livro) => ({ ...livro, categoria: text }))
+            setLivro((livro) => ({ ...livro, Categoria: text }))
           }
         />
         <TextInput
           label="Editora"
           style={{ marginBottom: 10 }}
           onChangeText={(text) =>
-            setLivro((livro) => ({ ...livro, editora: text }))
+            setLivro((livro) => ({ ...livro, Editora: text }))
           }
         />
         <TextInput
           label="Autor(s)"
           style={{ marginBottom: 10 }}
           onChangeText={(text) =>
-            setLivro((livro) => ({ ...livro, autores: text }))
+            setLivro((livro) => ({ ...livro, Autores: text }))
           }
         />
         <TextInput
           label="Localização"
           style={{ marginBottom: 10 }}
           onChangeText={(text) =>
-            setLivro((livro) => ({ ...livro, localizacao: text }))
+            setLivro((livro) => ({ ...livro, Localizacao: text }))
           }
         />
         
