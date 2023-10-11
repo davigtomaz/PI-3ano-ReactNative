@@ -2,15 +2,15 @@ import api from '../plugins/api'
 
 class CategoriaService {
   async getAllCategorias() {
-    const response = await api.get('/Categorias/')
+    const response = await api.get('/categorias/')
     return response.data
   }
-  async saveCategoria(Categoria) {
-    const response = await api.post('/Categorias/', Categoria)
+  async saveCategoria(categoria) {
+    const response = await api.post('/categorias/', categoria)
     return response.data
   }
-  async deleteCategoria(Categoria) {
-    const response = await api.delete(`/Categorias/${Categoria.id}/`)
+  async deleteCategoria(categoria) {
+    const response = await api.delete(`/categorias/${categoria.id}/`)
     return response.data
   }
 }

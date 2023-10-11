@@ -2,15 +2,15 @@ import api from '../plugins/api'
 
 class EditoraService {
   async getAllEditoras() {
-    const response = await api.get('/Editoras/')
+    const response = await api.get('/editoras/')
     return response.data
   }
-  async saveEditora(Editora) {
-    const response = await api.post('/Editoras/', Editora)
+  async saveEditora(editora) {
+    const response = await api.post('/editoras/', editora)
     return response.data
   }
-  async deleteEditora(Editora) {
-    const response = await api.delete(`/Editoras/${Editora.id}/`)
+  async deleteEditora(editora) {
+    const response = await api.delete(`/editoras/${editora.id}/`)
     return response.data
   }
 }
