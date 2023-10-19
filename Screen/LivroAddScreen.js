@@ -22,9 +22,9 @@ export default function MovieAdd({ navigation }) {
   const [file, setFile] = useState(null);
   const [livro, setLivro] = useState({
     titulo: "",
-    categoria: null,
+    categoria: [],
     editora: null,
-    autores: null,
+    autores: [],
     localizacao: null,
   });
 
@@ -78,11 +78,12 @@ export default function MovieAdd({ navigation }) {
     const image = await imageService.uploadImage(file);
     setLivro((livro) => ({
       ...livro,
-      categoria: livro.categoria ? [livro.categoria] : [],
-      autores: livro.autores ? [livro.autores] : [],
       capa_attachment_key: image.attachment_key,
     }));
-    const data = await livroService.saveLivro(livro);
+
+    console.log(livro);
+
+    const data = await livroService.saveLivro(livro, image);
     navigation.goBack();
   };
 
