@@ -8,8 +8,11 @@ function Card(props) {
         <Image style={styles.filme} source={{ uri: props.livro.capa }} />
       </View>
       <View>
-        <Text style={styles.texto}> {props.livro.titulo} </Text>
-        <Text style={styles.texto}> {props.livro.categoria} </Text>
+        <Text style={styles.texto1}> {props.livro.titulo} </Text>
+        <Text style={styles.texto2}> Categoria: {props.livro.categoria} </Text>
+        <Text style={styles.texto2}> Editora: {props.livro.editora} </Text>
+        <Text style={styles.texto2}> Autores: {props.livro.autores} </Text>
+        <Text style={styles.texto2}> Localização: {props.livro.localizacao} </Text>
       </View>
     </View>
   );
@@ -17,8 +20,9 @@ function Card(props) {
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
     width: "90%",
-    backgroundColor: "white",
+    backgroundColor: "#2f3e46",
     height: 200,
     borderRadius: 10,
     flexDirection: "row",
@@ -32,10 +36,20 @@ const styles = StyleSheet.create({
     height: "100%",
     borderRadius: 10,
   },
-  texto: {
+  texto1: {
+    padding: 5,
     justifyContent: "center",
     alignItems: "center",
-    color: "black",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  texto2: {
+    padding: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    fontSize: 13,
   },
 });
 

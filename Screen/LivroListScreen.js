@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   SafeAreaView,
   StyleSheet,
   View,
   ScrollView,
+  RefreshControl
 } from "react-native";
 import { FAB, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -17,18 +18,27 @@ export default function LivroListScreen({ navigation }) {
   const [refreshing, setRefreshing] = useState(false);
   const [Livros, setLivros] = useState([]);
 
+  
   async function BuscarDados() {
     const data = await livroService.getAllLivros();
     setLivros(data);
   }
-
+  
   useEffect(() => {
     BuscarDados();
   }, []);
-
+  
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await BuscarDados();
+    setRefreshing(false);
+  }, []);
+  
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollView} refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }>
         <View>
           <View style={{ alignItems: "center" }}>
             <Text style={styles.texto}>Seus Livros</Text>
