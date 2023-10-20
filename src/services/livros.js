@@ -14,8 +14,14 @@ class LivroService {
     return response.data
   }
   async deleteLivro(Livro) {
-    const response = await api.delete(`/livros/${Livro.id}/`)
-    return response.data
+    try {
+      console.log("ID do Livro a ser deletado:", Livro.id);
+      const response = await api.delete(`/livros/${Livro.id}/`);
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao excluir livro:", error);
+      throw error;
+    }
   }
 }
 

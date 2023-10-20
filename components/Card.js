@@ -1,7 +1,14 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { FAB,  } from "react-native-paper";
 
 function Card(props) {
+
+  const handleDelete = () => {
+    
+    props.onDelete(props.livro);
+  };
+
   return (
     <View style={styles.card}>
       <View style={{ height: "100%", width: "45%" }}>
@@ -13,6 +20,16 @@ function Card(props) {
         <Text style={styles.texto2}> Editora: {props.livro.editora} </Text>
         <Text style={styles.texto2}> Autores: {props.livro.autores} </Text>
         <Text style={styles.texto2}> Localização: {props.livro.localizacao} </Text>
+        <View style={styles.buttons}>
+        <FAB
+          mode="contained"
+          icon="trash-can-outline"
+          color='white'
+          style={styles.fab}
+          onPress={handleDelete}
+        >
+        </FAB>
+        </View>
       </View>
     </View>
   );
@@ -50,6 +67,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     color: "white",
     fontSize: 13,
+  },
+  deleteButton: {
+    color: "red",
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  fab: {
+    backgroundColor: "#2f3e46",
+    width: 40, 
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttons: {
+    position: "absolute",
+    left: 130,
+    bottom: 5,
+    zIndex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

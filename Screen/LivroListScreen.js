@@ -15,6 +15,18 @@ import livroService from "../src/services/livros.js";
 import Card from "../components/Card.js";
 
 export default function LivroListScreen({ navigation }) {
+
+  const handleDeleteLivro = async (livro) => {
+    try {
+      await livroService.deleteLivro(livro);
+      // Atualize o estado ou faça qualquer ação adicional após a exclusão
+    } catch (error) {
+      console.error("Erro ao excluir livro:", error);
+      // Trate o erro conforme necessário
+    }
+  };
+
+
   const [refreshing, setRefreshing] = useState(false);
   const [Livros, setLivros] = useState([]);
 
@@ -45,7 +57,7 @@ export default function LivroListScreen({ navigation }) {
           </View>
           <View style={styles.conteudo}>
             {Livros.map((Livro) => (
-              <Card key={Livro.id} livro={Livro} />
+              <Card key={Livro.id} livro={Livro} onDelete={handleDeleteLivro} />
             ))}
           </View>
         </View>
@@ -54,7 +66,7 @@ export default function LivroListScreen({ navigation }) {
         <FAB
           mode="contained"
           icon="book-plus"
-          color='black'
+          color='white'
           style={styles.fab}
           onPress={() => navigation.navigate("LivroAdd")}
         >
@@ -94,6 +106,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   fab: {
-    backgroundColor: "white",
+    backgroundColor: "#2f3e46",
   },
 });
