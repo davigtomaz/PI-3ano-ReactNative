@@ -19,10 +19,10 @@ export default function LivroListScreen({ navigation }) {
   const handleDeleteLivro = async (livro) => {
     try {
       await livroService.deleteLivro(livro);
-      // Atualize o estado ou faça qualquer ação adicional após a exclusão
+     
     } catch (error) {
       console.error("Erro ao excluir livro:", error);
-      // Trate o erro conforme necessário
+
     }
   };
 
