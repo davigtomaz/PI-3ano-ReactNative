@@ -6,20 +6,20 @@ function Card(props) {
 
   const handleDelete = () => {
     
-    props.onDelete(props.livro);
+    props.onDelete(props.emprestimo);
   };
 
   return (
     <View style={styles.card}>
       <View style={{ height: "100%", width: "45%" }}>
-        <Image style={styles.filme} source={{ uri: props.livro.capa }} />
+        
       </View>
       <View>
-        <Text style={styles.texto1}> {props.livro.titulo} </Text>
-        <Text style={styles.texto2}> Categoria: {props.livro.categoria} </Text>
-        <Text style={styles.texto2}> Editora: {props.livro.editora} </Text>
-        <Text style={styles.texto2}> Autores: {props.livro.autores} </Text>
-        <Text style={styles.texto2}> Localização: {props.livro.localizacao} </Text>
+        
+        <Text style={styles.texto2}> Emprestado para: {props.emprestimo.nome} </Text>
+        <Text style={styles.texto2}> Contato: {props.emprestimo.contato} </Text>
+        <Text style={styles.texto2}> Início Empréstimo : {props.emprestimo.inicio} </Text>
+        <Text style={styles.texto2}> Fim Empréstimo : {props.emprestimo.final} </Text>
         <View style={styles.buttons}>
         <FAB
           mode="contained"

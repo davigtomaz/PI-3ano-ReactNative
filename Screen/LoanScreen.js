@@ -10,30 +10,31 @@ import { FAB, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
-import livroService from "../src/services/livros.js";
+
+import emprestimoService from "../src/services/emprestimos.js"
 
 import CardEmprestimo from "../components/CardEmprestimo.js";
 
-export default function LivroListScreen({ navigation }) {
+export default function LoanScreen({ navigation }) {
 
-  const handleDeleteLivro = async (livro) => {
+  const handleDeleteEmprestimo = async (emprestimo) => {
     try {
-      await livroService.deleteLivro(livro);
+      await emprestimoService.deleteEmprestimo(emprestimo);
      
     } catch (error) {
-      console.error("Erro ao excluir livro:", error);
+      console.error("Erro ao excluir emprestimo:", error);
 
     }
   };
 
 
   const [refreshing, setRefreshing] = useState(false);
-  const [Livros, setLivros] = useState([]);
+  const [emprestimos, setEmprestimos] = useState([]);
 
   
   async function BuscarDados() {
-    const data = await livroService.getAllLivros();
-    setLivros(data);
+    const data = await emprestimoService.getAllEmprestimos();
+    setEmprestimos(data);
   }
   
   useEffect(() => {
@@ -53,11 +54,11 @@ export default function LivroListScreen({ navigation }) {
       }>
         <View>
           <View style={{ alignItems: "center" }}>
-            <Text style={styles.texto}>Seus Livros</Text>
+            <Text style={styles.texto}>Seus Empréstimos</Text>
           </View>
           <View style={styles.conteudo}>
-            {Livros.map((Livro) => (
-              <CardEmprestimo key={Livro.id} livro={Livro} onDelete={handleDeleteLivro} />
+            {emprestimos.map((Emprestimo) => (
+              <CardEmprestimo key={Emprestimo.id} emprestimo={Emprestimo} onDelete={handleDeleteEmprestimo} />
             ))}
           </View>
         </View>
