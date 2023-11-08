@@ -11,15 +11,13 @@ function Card(props) {
 
   return (
     <View style={styles.card}>
-      <View style={{ height: "100%", width: "45%" }}>
-        
-      </View>
+      
       <View>
-        
-        <Text style={styles.texto2}> Emprestado para: {props.emprestimo.nome} </Text>
-        <Text style={styles.texto2}> Contato: {props.emprestimo.contato} </Text>
-        <Text style={styles.texto2}> Início Empréstimo : {props.emprestimo.inicio} </Text>
-        <Text style={styles.texto2}> Fim Empréstimo : {props.emprestimo.final} </Text>
+      <Text style={styles.texto2}> Livro: {props.emprestimo.nome_livro} </Text>
+        <Text style={styles.texto2}>Emprestado para: {props.emprestimo.nome} </Text>
+        <Text style={styles.texto2}>Contato: {props.emprestimo.contato}</Text>
+        <Text style={styles.texto2}>Empréstimo : {props.emprestimo.inicio} </Text>
+        <Text style={styles.texto2}>Devolução : {props.emprestimo.final} </Text>
         <View style={styles.buttons}>
         <FAB
           mode="contained"
@@ -37,6 +35,7 @@ function Card(props) {
 
 const styles = StyleSheet.create({
   card: {
+
     flex: 1,
     width: "90%",
     backgroundColor: "#2f3e46",
@@ -46,6 +45,8 @@ const styles = StyleSheet.create({
     margin: 20,
     color: "white",
     elevation: 15,
+    justifyContent: 'center',
+    alignItems: "center"
   },
   filme: {
     resizeMode: "stretch",
@@ -81,11 +82,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttons: {
-    position: "absolute",
+    position: "relative",
     left: 130,
     bottom: 5,
     zIndex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
 });
