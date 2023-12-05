@@ -1,32 +1,44 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import { FAB,  } from "react-native-paper";
+import { FAB } from "react-native-paper";
 
 function Card(props) {
-
   const handleDelete = () => {
-    
     props.onDelete(props.emprestimo);
   };
 
   return (
     <View style={styles.card}>
-      
+      <View style={{ height: "100%", width: "45%" }}>
+        <Image
+          style={styles.filme}
+          source={{ uri: props.emprestimo.nome_livro.capa.file }}
+        />
+      </View>
       <View>
-      <Text style={styles.texto2}> Livro: {props.emprestimo.nome_livro} </Text>
-        <Text style={styles.texto2}>Emprestado para: {props.emprestimo.nome} </Text>
-        <Text style={styles.texto2}>Contato: {props.emprestimo.contato}</Text>
-        <Text style={styles.texto2}>Empréstimo : {props.emprestimo.inicio} </Text>
-        <Text style={styles.texto2}>Devolução : {props.emprestimo.final} </Text>
+        <Text style={styles.texto1}>
+          {" "}
+          {props.emprestimo.nome_livro.titulo}{" "}
+        </Text>
+        <Text style={styles.texto2}>
+          {" "}
+          Emprestado para: {props.emprestimo.nome}{" "}
+        </Text>
+        <Text style={styles.texto2}> Contato: {props.emprestimo.contato} </Text>
+        <Text style={styles.texto2}>
+          {" "}
+          Inicio emp: {props.emprestimo.inicio}{" "}
+        </Text>
+        <Text style={styles.texto2}> Final emp: {props.emprestimo.final} </Text>
+
         <View style={styles.buttons}>
-        <FAB
-          mode="contained"
-          icon="trash-can-outline"
-          color='white'
-          style={styles.fab}
-          onPress={handleDelete}
-        >
-        </FAB>
+          <FAB
+            mode="contained"
+            icon="trash-can-outline"
+            color="white"
+            style={styles.fab}
+            onPress={handleDelete}
+          ></FAB>
         </View>
       </View>
     </View>
@@ -35,7 +47,6 @@ function Card(props) {
 
 const styles = StyleSheet.create({
   card: {
-
     flex: 1,
     width: "90%",
     backgroundColor: "#2f3e46",
@@ -45,8 +56,6 @@ const styles = StyleSheet.create({
     margin: 20,
     color: "white",
     elevation: 15,
-    justifyContent: 'center',
-    alignItems: "center"
   },
   filme: {
     resizeMode: "stretch",
@@ -76,17 +85,17 @@ const styles = StyleSheet.create({
   },
   fab: {
     backgroundColor: "#2f3e46",
-    width: 40, 
+    width: 40,
     height: 40,
     justifyContent: "center",
     alignItems: "center",
   },
   buttons: {
-    position: "relative",
+    position: "absolute",
     left: 130,
     bottom: 5,
     zIndex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
   },
 });

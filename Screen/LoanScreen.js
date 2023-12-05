@@ -7,9 +7,6 @@ import {
   RefreshControl
 } from "react-native";
 import { FAB, Text } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { StatusBar } from "expo-status-bar";
-
 
 import emprestimoService from "../src/services/emprestimos.js"
 
@@ -69,7 +66,7 @@ export default function LoanScreen({ navigation }) {
           icon="book-plus"
           color='white'
           style={styles.fab}
-          onPress={() => navigation.navigate("LivroAdd")}
+          onPress={() => navigation.navigate("LoanAdd")}
         >
         </FAB>
       </View>
