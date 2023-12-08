@@ -1,14 +1,11 @@
-// PerfilScreen.js
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { Stack, Avatar } from "@react-native-material/core";
 
-import Graphic from "../components/Graphic.js";
+import React from "react";
+import { StyleSheet, View,  } from "react-native";
 
 const PerfilScreen = () => {
   return (
     <View>
-        <Graphic />
+      <h1>Perfil</h1>
     </View>
   );
 };
@@ -20,10 +17,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  // Quero que a imagem do avatar fique maior
-
-  avatar: {},
 });
 
 export default PerfilScreen;

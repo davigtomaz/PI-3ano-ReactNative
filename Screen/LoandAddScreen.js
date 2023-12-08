@@ -7,9 +7,7 @@ import { useTheme } from "react-native-paper";
 
 import livrosService from "../src/services/livros";
 import emprestimoService from "../src/services/emprestimos";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import DatePicker from "../components/Datepicker";
-import DatePicker2 from "../components/Datepicker2";
+
 
 export default function LoanAdd({ navigation }) {
   const theme = useTheme();
@@ -18,8 +16,8 @@ export default function LoanAdd({ navigation }) {
   const [emprestimo, setEmprestimo] = useState({
     nome: "",
     contato: "",
-    inicio: null,
-    final: null,
+    inicio: new Date(),
+    final: new Date(),
     nome_livro: null,
   });
 
@@ -35,7 +33,19 @@ export default function LoanAdd({ navigation }) {
   }, []);
 
   const save = async () => {
-    const data = await emprestimoService.saveEmprestimo(emprestimo);
+
+    const inicioFormatado = emprestimo.inicio.toISOString().substring(0, 10);
+    const finalFormatado = emprestimo.final.toISOString().substring(0, 10);
+
+    
+    const emprestimoFormatado = {
+      ...emprestimo,
+      inicio: inicioFormatado,
+      final: finalFormatado,
+    };
+
+
+    const data = await emprestimoService.saveEmprestimo(emprestimoFormatado);
     navigation.goBack();
   };
 
@@ -56,21 +66,26 @@ export default function LoanAdd({ navigation }) {
             setEmprestimo((emprestimo) => ({ ...emprestimo, contato: text }))
           }
         />
-    
-        <DatePicker
-          label="Início"
-          onSelect={(date) =>
-            setEmprestimo((emprestimo) => ({ ...emprestimo, inicio: date }))
+        <TextInput
+          label="Inicio"
+          style={{ marginBottom: 5 }}
+          onChangeText={(date) =>
+            setEmprestimo((emprestimo) => ({
+              ...emprestimo,
+              inicio: date ? new Date(date) : new Date(),
+            }))
           }
         />
-
-        <DatePicker2
+        <TextInput
           label="Final"
-          onSelect={(date) =>
-            setEmprestimo((emprestimo) => ({ ...emprestimo, final: date }))
+          style={{ marginBottom: 5 }}
+          onChangeText={(date) =>
+            setEmprestimo((emprestimo) => ({
+              ...emprestimo,
+              final: date ? new Date(date) : new Date(),
+            }))
           }
         />
-
         <Dropdown
           style={[
             styles.dropdown,
@@ -117,6 +132,7 @@ export default function LoanAdd({ navigation }) {
         </Button>
       </View>
     </ScrollView>
+
   );
 }
 
