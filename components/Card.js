@@ -5,7 +5,6 @@ import { FAB,  } from "react-native-paper";
 function Card(props) {
 
   const handleDelete = () => {
-    
     props.onDelete(props.livro);
   };
 
